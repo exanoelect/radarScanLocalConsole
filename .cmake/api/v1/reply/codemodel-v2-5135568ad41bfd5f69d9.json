@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-MinSizeRel-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "radarScanLocalConsole",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "radarScanLocalConsole::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-radarScanLocalConsole-MinSizeRel-86bc25fc021348f90f5a.json",
+					"name" : "radarScanLocalConsole",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "radarScanLocalConsole_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-radarScanLocalConsole_autogen-MinSizeRel-de6e200a77f590efd841.json",
+					"name" : "radarScanLocalConsole_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "radarScanLocalConsole_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-radarScanLocalConsole_autogen_timestamp_deps-MinSizeRel-f744e98d913ee1e8da67.json",
+					"name" : "radarScanLocalConsole_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/pi/qtpro/radarScanLocalConsole",
+		"source" : "/home/pi/qtpro/radarScanLocalConsole"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
