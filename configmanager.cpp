@@ -7,7 +7,7 @@ QString ConfigManager::getServerIp()
 {
     //QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
 #ifdef Q_OS_LINUX
-    QString configPath = "/opt/app/configlocal.ini";
+    QString configPath = "/home/pi/app/configlocal.ini";
 #else
     QString configPath = "/Volumes/DATA/app/config.ini";
 #endif
@@ -21,7 +21,7 @@ QString ConfigManager::getServerIpDNS()
 {
     //QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
 #ifdef Q_OS_LINUX
-    QString configPath = "/opt/app/configlocal.ini";
+    QString configPath = "/home/pi/app/configlocal.ini";
 #else
     QString configPath = "/Volumes/DATA/app/config.ini";
 #endif
@@ -35,7 +35,7 @@ int ConfigManager::getServerPort()
 {
     //QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
 #ifdef Q_OS_LINUX
-    QString configPath = "/opt/app/configlocal.ini";
+    QString configPath = "/home/pi/app/configlocal.ini";
 #else
     QString configPath = "/Volumes/DATA/app/config.ini";
 #endif
@@ -48,7 +48,7 @@ QString ConfigManager::getRadar1Port()
 {
     //QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
 #ifdef Q_OS_LINUX
-    QString configPath = "/opt/app/configlocal.ini";
+    QString configPath = "/home/pi/app/configlocal.ini";
 #else
     QString configPath = "/Volumes/DATA/app/config.ini";
 #endif
@@ -61,7 +61,7 @@ QString ConfigManager::getRadar2Port()
 {
     //QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
 #ifdef Q_OS_LINUX
-    QString configPath = "/opt/app/configlocal.ini";
+    QString configPath = "/home/pi/app/configlocal.ini";
 #else
     QString configPath = "/Volumes/DATA/app/config.ini";
 #endif
@@ -74,7 +74,7 @@ int ConfigManager::getDropHeightThreshold()
 {
     //QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
 #ifdef Q_OS_LINUX
-    QString configPath = "/opt/app/configlocal.ini";
+    QString configPath = "/home/pi/app/configlocal.ini";
 #else
     QString configPath = "/Volumes/DATA/app/config.ini";
 #endif
@@ -87,7 +87,7 @@ int ConfigManager::getCurveFilterActive()
 {
     //QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
 #ifdef Q_OS_LINUX
-    QString configPath = "/opt/app/configlocal.ini";
+    QString configPath = "/home/pi/app/configlocal.ini";
 #else
     QString configPath = "/Volumes/DATA/app/config.ini";
 #endif
@@ -100,7 +100,7 @@ QString ConfigManager::getSerialNumber()
 {
     //QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
 #ifdef Q_OS_LINUX
-    QString configPath = "/opt/app/configlocal.ini";
+    QString configPath = "/home/pi/app/configlocal.ini";
 #else
     QString configPath = "/Volumes/DATA/app/config.ini";
 #endif

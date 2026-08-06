@@ -1,6 +1,8 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include <functional>
+
 #include <QObject>
 #include <QFile>
 #include <QTextStream>
@@ -14,10 +16,6 @@
 #endif
 
 #include <unistd.h> //Header ini berisi deklarasi untuk berbagai fungsi sistem standar di Unix, seperti operasi file, manajemen proses, dan manipulasi direktori.
-#include <QCursor>
-#include <qcursor.h>
-#include <QMessageBox>
-#include <QSpacerItem>
 #include <QThread>
 #include <QRegularExpression>
 #include <QTimer>

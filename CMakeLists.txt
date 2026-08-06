@@ -1,53 +1,42 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(radarScanLocal VERSION 1.0 LANGUAGES CXX)
+project(radarScanLocalConsole VERSION 1.0 LANGUAGES CXX)
 
-# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Temukan modul Qt6 yang diperlukan
 find_package(Qt6 REQUIRED COMPONENTS
-    Widgets
-    SerialPort
-    Network
-    #Multimedia
-    WebSockets
     Core
+    Network
+    WebSockets
     DBus
-    Mqtt
 )
 
-# libnl (netlink)
 find_package(PkgConfig REQUIRED)
 
 if(UNIX AND NOT APPLE)
     pkg_check_modules(LIBNL REQUIRED libnl-3.0 libnl-genl-3.0)
 endif()
 
-# Jika pakai .ui file
 qt_standard_project_setup()
 
-# Kumpulkan file sumber
 set(SOURCES
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    appcontroller.cpp
+    appcontroller.h
 
     socketioclient.cpp
     socketioclient.h
-    socketeventworker.h
     socketeventworker.cpp
-    configmanager.h
+    socketeventworker.h
     configmanager.cpp
-    networksetting.h
+    configmanager.h
     networksetting.cpp
-    utilities.h
+    networksetting.h
     utilities.cpp
-    systemdmonitorqt.h
+    utilities.h
     systemdmonitorqt.cpp
-
+    systemdmonitorqt.h
 )
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -59,57 +48,36 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     )
 endif()
 
-# Generate executable
-qt_add_executable(radarScanLocal
+qt_add_executable(radarScanLocalConsole
     ${SOURCES}
 )
 
-# Include path
-target_include_directories(radarScanLocal
+target_include_directories(radarScanLocalConsole
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${LIBNL_INCLUDE_DIRS}
 )
 
-# ===== Platform detection =====
 if(UNIX AND NOT APPLE)
-    message(STATUS "Linux build detected (RPi 5) — linking gpiod + libnl")
+    message(STATUS "Linux build detected (RPi 5) - console/headless mode")
 
-    target_link_libraries(radarScanLocal PRIVATE
+    target_link_libraries(radarScanLocalConsole PRIVATE
         ${LIBNL_LIBRARIES}
     )
 
-    target_compile_definitions(radarScanLocal PRIVATE PLATFORM_LINUX)
-
+    target_compile_definitions(radarScanLocalConsole PRIVATE PLATFORM_LINUX)
 elseif(APPLE)
-    message(STATUS "macOS build detected — gpiod stub mode")
-
-    target_compile_definitions(radarScanLocal PRIVATE PLATFORM_MACOS)
+    message(STATUS "macOS build detected - console/headless mode")
+    target_compile_definitions(radarScanLocalConsole PRIVATE PLATFORM_MACOS)
 endif()
 
-# Link Qt modules (common)
-target_link_libraries(radarScanLocal PRIVATE
-    Qt6::Widgets
+target_link_libraries(radarScanLocalConsole PRIVATE
+    Qt6::Core
     Qt6::Network
     Qt6::WebSockets
-    Qt6::Core
     Qt6::DBus
 )
 
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    target_link_libraries(radarScanLocal PRIVATE pulse)
-endif()
-
-# Tambahan compile flags dari pkg-config
-target_compile_options(radarScanLocal PRIVATE
+target_compile_options(radarScanLocalConsole PRIVATE
     ${LIBNL_CFLAGS_OTHER}
 )
-
-# macOS bundle settings
-if(APPLE)
-    set_target_properties(radarScanLocal PROPERTIES
-        MACOSX_BUNDLE TRUE
-        MACOSX_BUNDLE_GUI_IDENTIFIER "com.example.myqt6app"
-        MACOSX_BUNDLE_BUNDLE_NAME "radarScanLocal"
-    )
-endif()
